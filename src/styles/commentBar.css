@@ -21,7 +21,7 @@
 }
 .comments-bar__title {
     line-height: 1.2;
-    font-family: 'Roboto-Bold';
+    font-family: "Roboto";
     font-weight: 700;
     font-size: 22px;
 }
@@ -48,8 +48,10 @@
     padding-inline: 80px;
 }
 .sorting-date {
-    font-family: 'Roboto-Bold';
+    font-family: 'Roboto';
+    font-weight: 700;
 }
 .font-roboto {
-    font-family: "Roboto-Regular, sans-serif";
+    font-family: "Roboto";
+    font-weight: 400;
 }
