@@ -40,7 +40,7 @@ const Comments = () => {
             addNewComment={addNewComment}
           />
           {commentsArray.map((comment) => (
-            <UserComment key={comment.id} data={comment} />
+            <UserComment addNewComment={addNewComment} key={comment.id} data={comment}/>
           ))}
         </>
       )}

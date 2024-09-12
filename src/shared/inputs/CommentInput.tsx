@@ -6,8 +6,16 @@ import { CommentDto } from "../../models/comments";
 
 interface CommentInputProps {
   addNewComment: (newComment: CommentDto) => void;
+  isAnswer?: boolean;
+  commentData: CommentDto;
+  setIsAnswer: (value: boolean) => void;
 }
-const CommentInput = ({ addNewComment }: CommentInputProps) => {
+const CommentInput = ({
+  addNewComment,
+  isAnswer,
+  commentData,
+  setIsAnswer
+}: CommentInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [commentValue, setCommentValue] = useState("");
 
@@ -15,10 +23,25 @@ const CommentInput = ({ addNewComment }: CommentInputProps) => {
     setIsFocused(value);
   };
 
-  const onSubmitForm = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const onSubmitBtn = () => {
+    addNewComment(
+      isAnswer
+        ? {
+            parentComment: {
+              author: commentData.author,
+              text: commentData.text,
+              id: commentData.id,
+            },
+            id: String(new Date()),
+            text: commentValue,
+          }
+        : { id: String(new Date()), text: commentValue }
+    );
+    setIsFocused(false);
     setCommentValue("");
-    e.preventDefault();
+    setIsAnswer(false);
   };
+
 
   useEffect(() => {
     const textarea = document.getElementById(
@@ -26,9 +49,11 @@ const CommentInput = ({ addNewComment }: CommentInputProps) => {
     ) as HTMLTextAreaElement;
 
     const handleTextareaKeyup = () => {
-      textarea.style.height = "104px";
-      const scHeight = textarea.scrollHeight;
-      textarea.style.height = `${scHeight}px`;
+      if (isFocused) {
+        textarea.style.height = "104px";
+        const scHeight = textarea.scrollHeight;
+        textarea.style.height = `${scHeight}px`;
+      } 
     };
 
     textarea?.addEventListener("keyup", handleTextareaKeyup);
@@ -39,7 +64,7 @@ const CommentInput = ({ addNewComment }: CommentInputProps) => {
   }, []);
 
   return (
-    <form onSubmit={(e) => onSubmitForm(e)} className="comment-form">
+    <form onSubmit={(e) => e.preventDefault()} className="comment-form">
       <div className="comment-form__wrapper">
         <textarea
           id="comment-input"
@@ -62,9 +87,7 @@ const CommentInput = ({ addNewComment }: CommentInputProps) => {
             </a>
           </p>
           <button
-            onClick={() =>
-              addNewComment({ id: String(new Date()), text: commentValue })
-            }
+            onClick={onSubmitBtn}
             disabled={!commentValue}
             className={
               commentValue

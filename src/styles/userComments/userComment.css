@@ -44,7 +44,8 @@
   .user-comment__footer {
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    margin-bottom: 10px; }
   .user-comment__rating {
     display: flex;
     align-items: center;
