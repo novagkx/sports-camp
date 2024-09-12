@@ -1,88 +1,85 @@
-.comment-form__list {
-    padding-left: 0;
-    list-style-type: none;
-    display: flex;
-    position: absolute;
-    column-gap: 14px;
-    top: 50%;
-    right: 10px;
-    transform: translate(0, -50%);
-}
-.comment-form__wrapper {
-    position: relative;
-}
-.comment-form__inner {
-    max-width: 100%
-}
-.comment-form__input {
-    scrollbar-width: none;
-    resize: none;
-    width: 100%;
-    border: 0.50px solid #eaeaea;
-    border-radius: 16px;
-    padding: 12px 16px 12px 12px;
-    background-color: #f4f4f4;
-    font-family: 'Roboto-Bold';
-    font-size: 0.875rem;
-    display: block;
-}
-.comment-form__input::placeholder {
-    color: #505050;
-}
-.comment-form__input:focus {
-    outline: black;
-}
-.comment-form__list.active {
+.comment-form__list, .comment-form__list--active {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  position: absolute;
+  column-gap: 14px;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%); }
+  .comment-form__list--active {
     top: 80%;
-    transform: translate(0, -50%);
-}
-.comment-form__input:hover {
-    background-color: #eaeaea;
-}
-.comment-form__input.active {
+    transform: translate(0, -50%); }
+
+.comment-form__wrapper {
+  position: relative; }
+
+.comment-form__inner {
+  max-width: 100%; }
+
+.comment-form__input, .comment-form__input--active {
+  scrollbar-width: none;
+  resize: none;
+  width: 100%;
+  border: 0.5px solid #eaeaea;
+  border-radius: 16px;
+  padding: 12px 16px 12px 12px;
+  background-color: #f4f4f4;
+  font-family: "Roboto-Bold";
+  font-size: 0.875rem;
+  display: block; }
+  .comment-form__input:hover, .comment-form__input--active:hover {
+    background-color: #eaeaea; }
+  .comment-form__input--active {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background-color: #fff;
-    min-height: 104px;
-}
+    min-height: 104px; }
+    .comment-form__input--active:hover {
+      background-color: #fff; }
+  .comment-form__input::placeholder, .comment-form__input--active::placeholder {
+    color: #505050; }
+  .comment-form__input:focus, .comment-form__input--active:focus {
+    outline: black; }
+
 .comment-form__footer {
-    border-bottom-left-radius: 11px ;
-    border-bottom-right-radius: 11px;
-    background-color: #f4f4f4;;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
 .comment-form__text {
-    font-size: 0.875rem;
-    padding-block: 22px;
-    padding-left: 16px;
-}
-.comment-form__send-btn {
-    margin-right: 10px;
-    display: inline-block;
-    height: max-content;
-    background-color: #9b9b9b;
-    color: #fff;
-    font-size: 0.75rem;
-    padding-inline: 16px;
-    padding-block: 8px;
-    border-radius: 16px;
-    font-family: "Roboto-Bold";
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1.3;
-}
+  font-size: 0.875rem;
+  padding-block: 22px;
+  padding-left: 16px; }
+
+.comment-form__send-btn, .comment-form__send-btn--active {
+  margin-right: 10px;
+  display: inline-block;
+  height: max-content;
+  background-color: #9b9b9b;
+  color: #fff;
+  font-size: 0.75rem;
+  padding-inline: 16px;
+  padding-block: 8px;
+  border-radius: 16px;
+  font-family: "Roboto-Bold";
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.3; }
+  .comment-form__send-btn--active {
+    background-color: #00a876; }
+
 .comment-form__link {
-    color: #006496;
-    text-decoration: none;
-}
-.comment-form__send-btn.active {
-    background-color: #00a876;
-}
-.comment-form__send-btn:hover {
-    cursor: pointer;
-}
-.comment-form__send-btn:disabled {
-    cursor: not-allowed;
-}
+  color: #006496;
+  text-decoration: none; }
+
+.comment-form__send-btn:hover, .comment-form__send-btn--active:hover {
+  cursor: pointer; }
+
+.comment-form__send-btn:disabled, .comment-form__send-btn--active:disabled {
+  cursor: not-allowed; }
+
+/*# sourceMappingURL=commentInput.css.map */
