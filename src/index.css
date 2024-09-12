@@ -1,20 +1,20 @@
-@font-face {
-    font-family: "Roboto-Bold, sans-serif";
-    src: url("./assets/Roboto-Bold.woff2") format("woff2");
-    font-weight: 700;
-}
-@font-face {
-    font-family: "Roboto-Medium, sans-serif";
-    src: url("./assets/Roboto-Medium.woff2") format("woff2");
-    font-weight: 500;
-}
-@font-face {
-    font-family: "Roboto-Regular, sans-serif";
-    src: url("./assets/Roboto-Regular.woff2") format("woff2");
+/* @font-face {
+    font-family: "Roboto";
     font-weight: 400;
+    src: url('assets/Roboto-Regular.woff2') format('woff2'); 
 }
-@font-face {
-    font-family: "RobotoCondensed-Bold, sans-serif";
-    src: url("./assets/RobotoCondensed-Bold.woff2") format("woff2");
+  @font-face {
+    font-family: "Roboto";
+    font-weight: 500;
+    src: url('assets/Roboto-Medium.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-family: "Roboto";
     font-weight: 700;
-}
+    src: url('assets/Roboto-Bold.woff2') format('woff2'); 
+  }
+@font-face {
+    font-family: 'Roboto-Condensed';
+    font-weight: 700;
+    src: url('assets/Roboto-Condensed-Bold.woff2') format('woff2'); 
+  } */

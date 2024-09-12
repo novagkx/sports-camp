@@ -3,15 +3,22 @@
   box-sizing: border-box;
   border: none,
 }
+body {
+  color: #222;
+}
 
 .classic-btn {
   border-radius: 11px;
   padding-inline: 8px;
   padding-block: 4px;
-  font-family: "Roboto-Bold, sans-serif";
+  font-family: "Roboto";
+  font-weight: 700;
 }
 .flex {
   display: flex;
+}
+.flex-column {
+  flex-direction: column;
 }
 button {
   background-color: transparent;
@@ -39,4 +46,19 @@ button {
 }
 .pointer {
   cursor: pointer;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+.vertical-line {
+  border-left: 2px solid #eaeaea;
+  height: auto;
+  border-radius: 100px;
 }

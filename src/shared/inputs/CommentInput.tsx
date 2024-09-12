@@ -1,15 +1,25 @@
-import "../../styles/commentInput.css";
+import "../../styles/commentInput/commentInput.css";
 import "../../App.css";
-
 import { useEffect, useState } from "react";
 import CommentsToolbar from "../business/CommentsToolbar";
-const CommentInput = () => {
+import { CommentDto } from "../../models/comments";
+
+interface CommentInputProps {
+  addNewComment: (newComment: CommentDto) => void;
+}
+const CommentInput = ({ addNewComment }: CommentInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [commentValue, setCommentValue] = useState("");
 
   const handleFocus = (value: boolean) => {
     setIsFocused(value);
   };
+
+  const onSubmitForm = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    setCommentValue("");
+    e.preventDefault();
+  };
+
   useEffect(() => {
     const textarea = document.getElementById(
       "comment-input"
@@ -29,7 +39,7 @@ const CommentInput = () => {
   }, []);
 
   return (
-    <form onSubmit={e => e.preventDefault()} className="comment-form">
+    <form onSubmit={(e) => onSubmitForm(e)} className="comment-form">
       <div className="comment-form__wrapper">
         <textarea
           id="comment-input"
@@ -41,16 +51,20 @@ const CommentInput = () => {
           }
           placeholder="Написать комментарий..."
         />
-        <CommentsToolbar isFocused={isFocused}/>
+        <CommentsToolbar isFocused={isFocused} />
       </div>
       {isFocused && (
         <div className="comment-form__footer">
           <p className="comment-form__text grey-600">
             Пишите корректно и дружелюбно.{" "}
-            <a className="comment-form__link pointer">Принципы нашей модерации</a>
+            <a href="#" className="comment-form__link pointer">
+              Принципы нашей модерации
+            </a>
           </p>
           <button
-            onClick={() => {}}
+            onClick={() =>
+              addNewComment({ id: String(new Date()), text: commentValue })
+            }
             disabled={!commentValue}
             className={
               commentValue
