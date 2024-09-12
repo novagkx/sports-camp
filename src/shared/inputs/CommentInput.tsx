@@ -37,7 +37,7 @@ const CommentInput = () => {
           onClick={() => handleFocus(true)}
           onChange={(e) => setCommentValue(e.target.value)}
           className={
-            isFocused ? "comment-form__input active" : "comment-form__input"
+            isFocused ? "comment-form__input--active" : "comment-form__input"
           }
           placeholder="Написать комментарий..."
         />
@@ -54,7 +54,7 @@ const CommentInput = () => {
             disabled={!commentValue}
             className={
               commentValue
-                ? "comment-form__send-btn active"
+                ? "comment-form__send-btn--active"
                 : "comment-form__send-btn"
             }
             type="submit"

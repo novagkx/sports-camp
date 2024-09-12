@@ -13,7 +13,7 @@ const CommentsToolbar = ({ isFocused }: CommentsToolbarProps) => {
   ];
   return (
     <ul
-      className={isFocused ? "comment-form__list active" : "comment-form__list"}
+      className={isFocused ? "comment-form__list--active" : "comment-form__list"}
     >
       {toolsArray.map((tool) => (
         <li key={tool.id} className="comment-form__item">
