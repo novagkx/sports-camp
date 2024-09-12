@@ -7,11 +7,15 @@ import PlusIcon from "../shared/common/atoms/PlusIcon";
 import MinusIcon from "../shared/common/atoms/MinusIcon";
 import MoreDetailsIcon from "../shared/common/atoms/MoreDetailsIcon";
 import VerticalLine from "../shared/common/atoms/VerticalLine";
+import CommentInput from "../shared/inputs/CommentInput";
 interface UserCommentProps {
   data: CommentDto;
+  addNewComment: (newComment: CommentDto) => void;
 }
 
-const UserComment = ({ data }: UserCommentProps) => {
+const UserComment = ({ data, addNewComment }: UserCommentProps) => {
+  const [isAnswer, setIsAnswer] = useState(false);
+
   const startRating =
     Number(data.rating?.plus) - Number(data.rating?.minus) || 0;
   const [rating, setRating] = useState(0);
@@ -23,6 +27,10 @@ const UserComment = ({ data }: UserCommentProps) => {
   const handleDecreaseRating = () => {
     setRating((prevRating) => (prevRating > -1 ? prevRating - 1 : prevRating));
   };
+
+  const updateAnswer = (value: boolean) => {
+    setIsAnswer(value)
+  }
 
   return (
     <section className="user-comment">
@@ -52,14 +60,21 @@ const UserComment = ({ data }: UserCommentProps) => {
           </button>
         </div>
       </header>
-      
+
       {data.parentComment && (
         <div className="parent-comment flex flex-column">
           <div className="flex parent-comment__inner">
             <VerticalLine />
             <div className="parent-comment__about">
-              <p className="parent-comment__author"><span className="parent-comment__answer">Ответ</span><span className="parent-comment__nick">{data.parentComment?.author?.nick || "--"}</span></p>
-              <p className="parent-comment__text">{data.parentComment?.text || "--"}</p>
+              <p className="parent-comment__author">
+                <span className="parent-comment__answer">Ответ</span>
+                <span className="parent-comment__nick">
+                  {data.parentComment?.author?.nick || "--"}
+                </span>
+              </p>
+              <p className="parent-comment__text">
+                {data.parentComment?.text || "--"}
+              </p>
             </div>
           </div>
           <p className="user-comment__text">{data.text}</p>
@@ -68,7 +83,7 @@ const UserComment = ({ data }: UserCommentProps) => {
       {!data.parentComment && <p className="user-comment__text">{data.text}</p>}
 
       <footer className="user-comment__footer">
-        <button type="button" className="user-comment__send-btn pointer">
+        <button type="button" className="user-comment__send-btn pointer" onClick={() => updateAnswer(true)}>
           Ответить
         </button>
         <div className="user-comment__rating">
@@ -107,6 +122,7 @@ const UserComment = ({ data }: UserCommentProps) => {
           </button>
         </div>
       </footer>
+      {isAnswer && <CommentInput setIsAnswer={updateAnswer} commentData={data} addNewComment={addNewComment} isAnswer={isAnswer}/>}
     </section>
   );
 };
