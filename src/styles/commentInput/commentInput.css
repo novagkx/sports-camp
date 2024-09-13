@@ -44,7 +44,8 @@
     .comment-form__input--active:hover {
       background-color: #fff; }
   .comment-form__input::placeholder, .comment-form__input--active::placeholder {
-    color: #505050; }
+    color: #505050;
+    font-weight: 400; }
   .comment-form__input:focus, .comment-form__input--active:focus {
     outline: black; }
 

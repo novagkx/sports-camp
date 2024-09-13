@@ -7,7 +7,7 @@ import PlusIcon from "../shared/common/atoms/PlusIcon";
 import MinusIcon from "../shared/common/atoms/MinusIcon";
 import MoreDetailsIcon from "../shared/common/atoms/MoreDetailsIcon";
 import VerticalLine from "../shared/common/atoms/VerticalLine";
-import CommentInput from "../shared/inputs/CommentInput";
+import CommentInput from "../shared/molecules/inputs/CommentInput";;
 interface UserCommentProps {
   data: CommentDto;
   addNewComment: (newComment: CommentDto) => void;

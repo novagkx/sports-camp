@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/commentBar.css";
-import CommentInput from "../shared/inputs/CommentInput";
+import CommentInput from "../shared/molecules/inputs/CommentInput";
 import ReloadButton from "../shared/common/atoms/ReloadButton";
 import ArrowUp from "../shared/common/atoms/ArrowUp";
 import ArrowDown from "../shared/common/atoms/ArrowDown";
@@ -19,6 +19,7 @@ const CommentsBar = ({
 }: CommentsProps) => {
   const [isFilteredByUpDate, setIsFilteredByUpDate] = useState(false);
   const [withDialogues, setWithDialogues] = useState(false);
+  
   const filterByDate = () => {
     setIsFilteredByUpDate((prev) => !prev);
   };

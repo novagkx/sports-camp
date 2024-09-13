@@ -1,10 +1,13 @@
+import "../styles/loader.css";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { CommentDto } from "../models/comments";
 import CommentsBar from "../comments/CommentsBar";
 import { BASE_URL } from "../constants/comments";
 import UserComment from "../comments/UserComment";
-import "../styles/loader.css";
+import Loader from "../shared/common/atoms/Loader";
+import { useNavigate } from "react-router-dom";
+
 const Comments = () => {
   const { isLoading, isError, data, refetch } = useQuery({
     queryKey: ["repoData"],
@@ -13,12 +16,14 @@ const Comments = () => {
   });
 
   const [commentsArray, setCommentsArray] = useState<CommentDto[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading && !isError && data) {
+    if (isError) navigate("/error");
+    else if (!isLoading && !isError && data) {
       setCommentsArray(data.data.commentQueries.list.comments);
     }
-  }, [isLoading, isError, data]);
+  }, [isLoading, isError, data, navigate]);
 
   const addNewComment = (newComment: CommentDto) => {
     setCommentsArray((prev) => [...prev, newComment]);
@@ -26,12 +31,7 @@ const Comments = () => {
 
   return (
     <main>
-      {isLoading && (
-        <div className="loader-wrapper">
-          <div className="loader"></div>
-        </div>
-      )}
-      {!isLoading && isError && <div className="loader-wrapper">Возникла ошибка!<button onClick={() => refetch()} className="loader__reload-btn pointer">Попробуйте снова.</button></div>}
+      {isLoading && <Loader />}
       {!isLoading && !isError && (
         <>
           <CommentsBar
@@ -40,7 +40,11 @@ const Comments = () => {
             addNewComment={addNewComment}
           />
           {commentsArray.map((comment) => (
-            <UserComment addNewComment={addNewComment} key={comment.id} data={comment}/>
+            <UserComment
+              addNewComment={addNewComment}
+              key={comment.id}
+              data={comment}
+            />
           ))}
         </>
       )}

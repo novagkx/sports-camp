@@ -1,20 +1,60 @@
-/* @font-face {
-    font-family: "Roboto";
-    font-weight: 400;
-    src: url('assets/Roboto-Regular.woff2') format('woff2'); 
-}
-  @font-face {
-    font-family: "Roboto";
-    font-weight: 500;
-    src: url('assets/Roboto-Medium.woff2') format('woff2'); 
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    border: none,
   }
-  @font-face {
-    font-family: "Roboto";
-    font-weight: 700;
-    src: url('assets/Roboto-Bold.woff2') format('woff2'); 
+  body {
+    color: #222;
   }
-@font-face {
-    font-family: 'Roboto-Condensed';
+  .flex {
+    display: flex;
+  }
+  .flex-column {
+    flex-direction: column;
+  }
+  button {
+    background-color: transparent;
+  }
+  .uppercase {
+    text-transform: uppercase
+  }
+  .bold {
     font-weight: 700;
-    src: url('assets/Roboto-Condensed-Bold.woff2') format('woff2'); 
-  } */
+  }
+  .text-sm {
+    font-size: 12px;
+  }
+  .grey-600 {
+    color: #7F7F7F
+  }
+  .mint-500 {
+    color: #00A876
+  }
+  .bg-mint-500 {
+    background-color: #00A876;
+  }
+  .white {
+    color: white
+  }
+  .pointer {
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .comment-form__list {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .user-comment__text,  .user-comment__nick {
+      font-size: 1rem;
+    }
+    .user-comment__time {
+      font-size: 0.875rem;
+    }
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+    }
+  }
