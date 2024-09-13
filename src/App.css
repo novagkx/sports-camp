@@ -1,51 +1,9 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
-  border: none,
-}
-body {
-  color: #222;
-}
-
 .classic-btn {
   border-radius: 11px;
   padding-inline: 8px;
   padding-block: 4px;
   font-family: "Roboto";
   font-weight: 700;
-}
-.flex {
-  display: flex;
-}
-.flex-column {
-  flex-direction: column;
-}
-button {
-  background-color: transparent;
-}
-.uppercase {
-  text-transform: uppercase
-}
-.bold {
-  font-weight: 700;
-}
-.text-sm {
-  font-size: 12px;
-}
-.grey-600 {
-  color: #7F7F7F
-}
-.mint-500 {
-  color: #00A876
-}
-.bg-mint-500 {
-  background-color: #00A876;
-}
-.white {
-  color: white
-}
-.pointer {
-  cursor: pointer;
 }
 .visually-hidden {
   position: absolute;
@@ -62,3 +20,8 @@ button {
   height: auto;
   border-radius: 100px;
 }
+.user-avatar {
+  width: 32px;
+  height: 32px;
+}
+
