@@ -1,50 +1,21 @@
-# React + TypeScript + Vite
+#Core technologies: React, TypeScript, Vite, SCSS, TanStack Query, HTML, CSS, ESLint, Git
+#Architecture: custom FSD
+#About project: this work is about users comments in sport (you can get users comments, set a like or dislike, add comment, answer to users comment). Mobile-first principle (start from 550px), adaptive for large screens by @media.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run this project you should FOLLOW next steps in bash or RUN docker container if you have it:
+1. git clone <repository-name> -> to clone repository with project
+2. cd <repository-name> -> to get a needed folder
+3. npm install -> to install dependencies of project
+4. npm run preview -> to run project
+5! ctrl + c -> to stop project
 
-Currently, two official plugins are available:
+Для запуска проекта необходимо выполнить следующие шаги в терминале:
+1. git clone <repository-name> -> склонировать репозиторий
+2. cd <repository-name> -> перейти в папку с проектом
+3. npm install -> установить необходимые зависимости
+4. npm run preview -> запустить проект
+5! ctrl + c -> для остановки проекта
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+P.S.
+If you want to upgrade the project, you should return to the step number 4 and use "npm run dev" instead "npm run preview"
+Если есть необходимость в разработке данного проекта, то необходимо вернуться к пункту 4 и выполнить команду "npm run dev" вместо "npm run preview"
